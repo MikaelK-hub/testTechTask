@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-import task.parser.exception.ParsingException;
 import task.parser.service.parsing.Handler;
 
 @Service

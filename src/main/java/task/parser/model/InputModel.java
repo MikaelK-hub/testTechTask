@@ -9,23 +9,21 @@ import lombok.ToString;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
-//@EqualsAndHashCode(callSuper = true)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @ToString
-public class InputModel /* extends Model */{
+public class InputModel extends Model{
 	String orderId;
 	String amount;
 	String currency;
 	String comment;
 	
-//	@Builder
-//	public InputModel(String orderId, String amount, String currency, String comment) {
-//		super(currency, comment);
-//		this.orderId = orderId;
-//		this.amount = amount;
-//		this.currency = currency;
-//		this.comment = comment;
-//	}
+	@Builder
+	public InputModel(String orderId, String amount, String currency, String comment) {
+		super(currency, comment);
+		this.orderId = orderId;
+		this.amount = amount;
+		this.currency = currency;
+		this.comment = comment;
+	}
 }
