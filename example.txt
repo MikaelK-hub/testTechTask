@@ -1,0 +1,32 @@
+[
+{
+"orderId":111,
+"amount":100,
+"currency":"USD",
+"comment":"paid from JSON #1"
+},
+{
+"orderId":222,
+"amount":"" ,
+"currency":"RUB",
+"comment":"paid from JSON #2"
+},
+{
+"orderId":null,
+"amount": "five",
+"currency":"EUR",
+"comment":"paid from JSON #3"
+},
+{
+"orderId":444,
+"amount":600,
+"currency":"UAH",
+"comment":"paid from JSON #4"
+},
+{
+"orderId":555,
+"amount":900,
+"currency":"NIS",
+"comment":"paid from JSON #5"
+}
+]
