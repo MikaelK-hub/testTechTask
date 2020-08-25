@@ -2,6 +2,7 @@ package task.parser.service.parsing;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -17,10 +18,8 @@ public class JsonHandlerImpl implements Handler {
 
 	@Override
 	public void converter(String filePath) {
-
 		try {
-			List<InputModel> inputModels = MAPPER
-					.readValue(new File(filePath), new TypeReference<List<InputModel>>() {});
+			List<InputModel> inputModels = Arrays.asList(MAPPER.readValue(new File(filePath), InputModel[].class));
 
 			IntStream
 			.range(0, inputModels.size())
