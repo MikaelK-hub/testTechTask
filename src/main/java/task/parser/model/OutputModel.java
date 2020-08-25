@@ -11,16 +11,34 @@ import lombok.ToString;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@EqualsAndHashCode
-@ToString
-public class OutputModel {
+@EqualsAndHashCode(callSuper = true)
+public class OutputModel extends Model{
 	String id;
 	BigDecimal amount;
-	String currency;
-	String comment;
 	String filename;
 	long line;
 	String result;
+
+	@Builder
+	public OutputModel(String currency, String comment, String id, BigDecimal amount, String filename, long line, String result) {
+		super(currency, comment);
+		this.id = id;
+		this.amount = amount;
+		this.filename = filename;
+		this.line = line;
+		this.result = result;
+	}
+
+	@Override
+	public String toString() {
+		return "{" +
+				"id='" + id + '\'' +
+				", amount=" + amount +
+				", currency='" + currency + '\'' +
+				", comment='" + comment + '\'' +
+				", filename='" + filename + '\'' +
+				", line=" + line +
+				", result='" + result + '\'' +
+				'}';
+	}
 }

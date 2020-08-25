@@ -13,8 +13,6 @@ import task.parser.model.OutputModel;
 
 public interface Handler {
 	
-	public static final ObjectMapper MAPPER = new ObjectMapper();
-	
 	void converter(String fileName);
 	
 	String getFormatName();
@@ -54,14 +52,6 @@ public interface Handler {
 	}
 	
 	default void printResult(OutputModel outputModel) {
-		String output = null;
-		
-		try {
-			output = MAPPER.writeValueAsString(outputModel);
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println(output);
+		System.out.println(outputModel);
 	}
 }

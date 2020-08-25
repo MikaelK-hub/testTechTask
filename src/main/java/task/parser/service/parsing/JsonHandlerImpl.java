@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
+import org.springframework.boot.json.JacksonJsonParser;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -16,6 +19,8 @@ import task.parser.model.InputModel;
 @Service
 public class JsonHandlerImpl implements Handler {
 
+	public static final ObjectMapper MAPPER = new ObjectMapper();
+
 	@Override
 	public void converter(String filePath) {
 		try {
@@ -25,7 +30,7 @@ public class JsonHandlerImpl implements Handler {
 			.range(0, inputModels.size())
 			.forEach(i -> createOutput(inputModels.get(i), i + 1, filePath));
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("JSON is not array!");
 		}
 	}
 
